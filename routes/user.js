@@ -13,7 +13,7 @@ router.get('/signUp',auth.checkNotLogin,function (req,res) {
 router.post('/signUp',auth.checkNotLogin,upload.single('avatar'),function (req,res) {
     var user = req.body;
     user.avatar = '/' + req.file.filename;
-    console.log(user);
+    // console.log(user);
     User.findOne({username:user.username},function (err,doc) {
         if(err){
             req.session.error = inspect(err);

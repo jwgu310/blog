@@ -21,7 +21,7 @@ router.post('/add',auth.checkLogin,function(req,res){
     }else{
         //把当前会话中的user属性的主键_id赋给 user属性
         article.user = req.session.user._id;
-        article.createAt = new Date();
+        // article.createAt = new Date().toLocaleString();
         delete article._id;
         Article.create(article,function(err,doc){
             if(err){
@@ -38,7 +38,7 @@ router.post('/add',auth.checkLogin,function(req,res){
 
 router.get('/detail/:_id',function(req,res){
     Article.findById(req.params._id,function(err,article){
-        console.log(req.params._id);
+        // console.log(req.params._id);
         //console.log(article);
         res.render('article/detail',{title:'文章详情',article});
     })

@@ -13,15 +13,15 @@ exports.User = User;
 User.remove({},function (err,data) {
     console.log(data.result);
 });*/
-User.create({username:123,password:123,as:123},function (err,data) {
+/*User.create({username:123,password:123,as:123},function (err,data) {
     console.log(data);
-});
+});*/
 
 var ObjectId = mongoose.Schema.Types.ObjectId;
 var ArticleSchema = new mongoose.Schema({
     title:String,
     content:String,
     user:{type:ObjectId,ref:'User'},
-    createAt:{type:String,default:new Date()}
+    createAt:{type:String,default:new Date().toLocaleString()}
 },{collection:'article'});
 exports.Article = mongoose.model('Article',ArticleSchema);

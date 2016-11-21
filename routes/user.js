@@ -1,7 +1,7 @@
 var express = require('express');
 
 var User = require('../model').User;
-// var util = require('util');
+var util = require('util');
 var auth = require('../auth');
 var multer = require('multer');
 var upload = multer({ dest: 'public/' });
